@@ -9,6 +9,8 @@ import UIKit
 
 class MainViewController: UIViewController {
     
+    private let idWorkOutTableViewCell = "idWorkOutTableViewCell"
+    
     private let userPhotoImageView: UIImageView = {
        let imageView = UIImageView()
         imageView.backgroundColor = #colorLiteral(red: 0.7607843137, green: 0.7607843137, blue: 0.7607843137, alpha: 1)
@@ -71,7 +73,18 @@ class MainViewController: UIViewController {
        let imageView = UIImageView()
         imageView.image = UIImage(named: "FrameWorkout")
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.isHidden = true
         return imageView
+    }()
+    
+    private let tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.backgroundColor = .none
+        tableView.bounces = false
+        tableView.showsVerticalScrollIndicator = false
+        tableView.separatorStyle = .none
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
     }()
     
     private let calendarView = CalendarView()
@@ -88,7 +101,13 @@ class MainViewController: UIViewController {
         
         setupViews()
         setConstraints()
-        
+        setDelegate()
+        tableView.register(WorkoutTableViewCell.self, forCellReuseIdentifier: idWorkOutTableViewCell)
+    }
+    
+    private func setDelegate() {
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
     @objc private func addWorkoutButtonTapped() {
@@ -105,9 +124,39 @@ class MainViewController: UIViewController {
         view.addSubview(weatherView)
         view.addSubview(workoutLabel)
         view.addSubview(workoutImageView)
+        view.addSubview(tableView)
     }
 
 }
+
+// MARK: - UITableViewDataSource
+
+extension MainViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: idWorkOutTableViewCell, for: indexPath) as! WorkoutTableViewCell
+        cell.textLabel?.text = "123"
+        
+        return cell
+    }
+ 
+}
+
+// MARK: - UITableViewDelegate
+
+extension MainViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        100
+    }
+    
+}
+
+// MARK: - Set Constraints
 
 extension MainViewController {
     
@@ -148,14 +197,21 @@ extension MainViewController {
         ])
         
         NSLayoutConstraint.activate([
-            workoutLabel.topAnchor.constraint(equalTo: addWorkoutButton.bottomAnchor, constant: 14),
-            workoutLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 13)
+            workoutLabel.topAnchor.constraint(equalTo: addWorkoutButton.bottomAnchor, constant: 10),
+            workoutLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10)
         ])
         
         NSLayoutConstraint.activate([
             workoutImageView.topAnchor.constraint(equalTo: workoutLabel.bottomAnchor, constant: 20),
             workoutImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 68),
             workoutImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -56)
+        ])
+        
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: workoutLabel.bottomAnchor, constant: 0),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
         ])
     }
     
