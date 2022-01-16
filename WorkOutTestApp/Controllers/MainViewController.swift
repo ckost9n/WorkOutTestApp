@@ -125,6 +125,7 @@ class MainViewController: UIViewController {
         view.addSubview(workoutLabel)
         view.addSubview(workoutImageView)
         view.addSubview(tableView)
+        tableView.delaysContentTouches = false
     }
 
 }
@@ -139,7 +140,7 @@ extension MainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: idWorkOutTableViewCell, for: indexPath) as! WorkoutTableViewCell
-        cell.textLabel?.text = "123"
+        
         
         return cell
     }
