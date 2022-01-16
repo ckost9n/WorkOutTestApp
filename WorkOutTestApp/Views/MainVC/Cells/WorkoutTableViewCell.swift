@@ -25,14 +25,14 @@ class WorkoutTableViewCell: UITableViewCell {
         return view
     }()
     
-    private let workoutImageView: UIImageView = {
+    var workoutImageView: UIImageView = {
        let imageView = UIImageView()
         imageView.image = UIImage(named: "Push Ups")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
-    private let nameExerciseLabel: UILabel = {
+    var nameExerciseLabel: UILabel = {
         let label = UILabel()
         label.text = "Konstantin"
         label.font = .robotoMedium24()
@@ -41,7 +41,7 @@ class WorkoutTableViewCell: UITableViewCell {
         return label
     }()
     
-    private let repsLabel: UILabel = {
+    var repsLabel: UILabel = {
        let label = UILabel()
         label.text = "Reps: 20"
         label.font = .robotoMedium14()
@@ -50,7 +50,7 @@ class WorkoutTableViewCell: UITableViewCell {
         return label
     }()
     
-    private let setsLabel: UILabel = {
+    var setsLabel: UILabel = {
        let label = UILabel()
         label.textAlignment = .left
         label.text = "Sets: 3"
@@ -60,7 +60,7 @@ class WorkoutTableViewCell: UITableViewCell {
         return label
     }()
     
-    private let numberOfExercisesStackView: UIStackView = {
+    var numberOfExercisesStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.backgroundColor = .none
         stackView.axis = .horizontal
@@ -70,7 +70,7 @@ class WorkoutTableViewCell: UITableViewCell {
         return stackView
     }()
     
-    private let startButton: UIButton = {
+    var startButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = .specialYellow
         button.titleLabel?.font = .robotoMedium24()
@@ -135,7 +135,8 @@ class WorkoutTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate([
             workoutImageView.topAnchor.constraint(equalTo: pictureView.topAnchor, constant: 7),
             workoutImageView.leadingAnchor.constraint(equalTo: pictureView.leadingAnchor, constant: 12),
-            workoutImageView.trailingAnchor.constraint(equalTo: pictureView.trailingAnchor, constant: -12)
+            workoutImageView.trailingAnchor.constraint(equalTo: pictureView.trailingAnchor, constant: -12),
+            workoutImageView.bottomAnchor.constraint(equalTo: pictureView.bottomAnchor, constant: -7)
         ])
         
         NSLayoutConstraint.activate([

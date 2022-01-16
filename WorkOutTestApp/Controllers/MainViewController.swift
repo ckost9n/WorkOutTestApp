@@ -11,6 +11,8 @@ class MainViewController: UIViewController {
     
     private let idWorkOutTableViewCell = "idWorkOutTableViewCell"
     
+    private let testDataArray: [WorkoutTestModel] = WorkoutTestModel.getWorkoutModel()
+    
     private let userPhotoImageView: UIImageView = {
        let imageView = UIImageView()
         imageView.backgroundColor = #colorLiteral(red: 0.7607843137, green: 0.7607843137, blue: 0.7607843137, alpha: 1)
@@ -135,12 +137,16 @@ class MainViewController: UIViewController {
 extension MainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        10
+        testDataArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: idWorkOutTableViewCell, for: indexPath) as! WorkoutTableViewCell
-        
+        let workoutData = testDataArray[indexPath.row]
+        cell.nameExerciseLabel.text = workoutData.nameExercise
+        cell.repsLabel.text = "\(workoutData.duration)\(workoutData.durationNumber)"
+        cell.setsLabel.text = "Sets: \(workoutData.setsNumber)"
+        cell.workoutImageView.image = workoutData.exerciseImage
         
         return cell
     }
