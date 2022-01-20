@@ -75,7 +75,7 @@ class MainViewController: UIViewController {
        let imageView = UIImageView()
         imageView.image = UIImage(named: "FrameWorkout")
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.isHidden = true
+//        imageView.isHidden = true
         return imageView
     }()
     
@@ -86,6 +86,7 @@ class MainViewController: UIViewController {
         tableView.showsVerticalScrollIndicator = false
         tableView.separatorStyle = .none
         tableView.translatesAutoresizingMaskIntoConstraints = false
+//        tableView.isHidden = true
         return tableView
     }()
     
@@ -105,6 +106,9 @@ class MainViewController: UIViewController {
         setConstraints()
         setDelegate()
         tableView.register(WorkoutTableViewCell.self, forCellReuseIdentifier: idWorkOutTableViewCell)
+        
+//        workoutImageView.isHidden = true
+        tableView.isHidden = true
     }
     
     private func setDelegate() {
@@ -113,7 +117,10 @@ class MainViewController: UIViewController {
     }
     
     @objc private func addWorkoutButtonTapped() {
-        print("addWorkoutButtonTapped")
+        let newWorkoutVC = NewWorkoutViewController()
+
+        present(newWorkoutVC, animated: true)
+        
     }
 
     private func setupViews() {
@@ -144,7 +151,7 @@ extension MainViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: idWorkOutTableViewCell, for: indexPath) as! WorkoutTableViewCell
         let workoutData = testDataArray[indexPath.row]
         cell.nameExerciseLabel.text = workoutData.nameExercise
-        cell.repsLabel.text = "\(workoutData.duration)\(workoutData.durationNumber)"
+        cell.repsLabel.text = "\(workoutData.duration): \(workoutData.durationNumber)"
         cell.setsLabel.text = "Sets: \(workoutData.setsNumber)"
         cell.workoutImageView.image = workoutData.exerciseImage
         

@@ -23,6 +23,10 @@
 		3C7CCE0E27931040005305E7 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7CCE0D27931040005305E7 /* WeatherView.swift */; };
 		3C7CCE1127935082005305E7 /* WorkoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7CCE1027935082005305E7 /* WorkoutTableViewCell.swift */; };
 		3C7CCE132793558C005305E7 /* WorkoutTestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7CCE122793558C005305E7 /* WorkoutTestModel.swift */; };
+		3C7CCE1527986ED0005305E7 /* NewWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7CCE1427986ED0005305E7 /* NewWorkoutViewController.swift */; };
+		3C7CCE17279997A7005305E7 /* StaisticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7CCE16279997A6005305E7 /* StaisticViewController.swift */; };
+		3C7CCE19279997B6005305E7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7CCE18279997B6005305E7 /* ProfileViewController.swift */; };
+		3C7CCE1B2799A76B005305E7 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7CCE1A2799A76B005305E7 /* MainTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +48,10 @@
 		3C7CCE0D27931040005305E7 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 		3C7CCE1027935082005305E7 /* WorkoutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTableViewCell.swift; sourceTree = "<group>"; };
 		3C7CCE122793558C005305E7 /* WorkoutTestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTestModel.swift; sourceTree = "<group>"; };
+		3C7CCE1427986ED0005305E7 /* NewWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWorkoutViewController.swift; sourceTree = "<group>"; };
+		3C7CCE16279997A6005305E7 /* StaisticViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaisticViewController.swift; sourceTree = "<group>"; };
+		3C7CCE18279997B6005305E7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		3C7CCE1A2799A76B005305E7 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,7 +133,11 @@
 		3C7CCDF427915EE0005305E7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3C7CCE1A2799A76B005305E7 /* MainTabBarController.swift */,
 				3C7CCDE027915D7F005305E7 /* MainViewController.swift */,
+				3C7CCE1427986ED0005305E7 /* NewWorkoutViewController.swift */,
+				3C7CCE16279997A6005305E7 /* StaisticViewController.swift */,
+				3C7CCE18279997B6005305E7 /* ProfileViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -252,13 +264,17 @@
 				3C7CCDFA27916513005305E7 /* UIFont + Extension.swift in Sources */,
 				3C7CCE0027916B15005305E7 /* UIStackView + Extension.swift in Sources */,
 				3C7CCE0827919234005305E7 /* CalendarView.swift in Sources */,
+				3C7CCE1527986ED0005305E7 /* NewWorkoutViewController.swift in Sources */,
+				3C7CCE17279997A7005305E7 /* StaisticViewController.swift in Sources */,
 				3C7CCDE127915D7F005305E7 /* MainViewController.swift in Sources */,
 				3C7CCE1127935082005305E7 /* WorkoutTableViewCell.swift in Sources */,
 				3C7CCE132793558C005305E7 /* WorkoutTestModel.swift in Sources */,
 				3C7CCDDD27915D7F005305E7 /* AppDelegate.swift in Sources */,
 				3C7CCDDF27915D7F005305E7 /* SceneDelegate.swift in Sources */,
+				3C7CCE1B2799A76B005305E7 /* MainTabBarController.swift in Sources */,
 				3C7CCE0B2792B2F8005305E7 /* CalendarCollectionViewCell.swift in Sources */,
 				3C7CCDFE27916A37005305E7 /* UIView + Extansion.swift in Sources */,
+				3C7CCE19279997B6005305E7 /* ProfileViewController.swift in Sources */,
 				3C7CCE0E27931040005305E7 /* WeatherView.swift in Sources */,
 				3C7CCDFC27916626005305E7 /* UIColor + Extension.swift in Sources */,
 			);

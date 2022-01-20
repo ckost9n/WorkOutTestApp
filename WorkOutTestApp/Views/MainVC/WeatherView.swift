@@ -14,6 +14,7 @@ class WeatherView: UIView {
         label.text = "Солнечно"
         label.font = .robotoMedium18()
         label.textColor = .specialGray
+        label.adjustsFontSizeToFitWidth = true
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -21,15 +22,15 @@ class WeatherView: UIView {
     private let descriptionLabel: UILabel = {
        let label = UILabel()
         label.text = "Хорошая погода, чтобы позаниматься на улице"
-        label.font = .robotoMedium13()
+        label.font = .robotoMedium14()
         label.textColor = .specialLightGray
         label.numberOfLines = 2
+        label.adjustsFontSizeToFitWidth = true
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private let weatherImageView: UIImageView = {
-//        let view = UIView()
         let imageView = UIImageView()
         imageView.image = UIImage(named: "sun")
         

@@ -28,6 +28,7 @@ class WorkoutTableViewCell: UITableViewCell {
     var workoutImageView: UIImageView = {
        let imageView = UIImageView()
         imageView.image = UIImage(named: "Push Ups")
+        imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -64,7 +65,7 @@ class WorkoutTableViewCell: UITableViewCell {
         let stackView = UIStackView()
         stackView.backgroundColor = .none
         stackView.axis = .horizontal
-        stackView.spacing = 1
+        stackView.spacing = 10
         stackView.distribution = .fillEqually
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
@@ -114,7 +115,7 @@ class WorkoutTableViewCell: UITableViewCell {
     private func setConstraints() {
         
         NSLayoutConstraint.activate([
-            backgroundCell.topAnchor.constraint(equalTo: topAnchor, constant: 7),
+            backgroundCell.topAnchor.constraint(equalTo: topAnchor, constant: 5),
             backgroundCell.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             backgroundCell.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             backgroundCell.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0)
@@ -128,8 +129,9 @@ class WorkoutTableViewCell: UITableViewCell {
         ])
         
         NSLayoutConstraint.activate([
-            nameExerciseLabel.topAnchor.constraint(equalTo: backgroundCell.topAnchor, constant: 10),
-            nameExerciseLabel.leadingAnchor.constraint(equalTo: pictureView.trailingAnchor, constant: 10)
+            nameExerciseLabel.topAnchor.constraint(equalTo: backgroundCell.topAnchor, constant: 5),
+            nameExerciseLabel.leadingAnchor.constraint(equalTo: pictureView.trailingAnchor, constant: 10),
+            nameExerciseLabel.trailingAnchor.constraint(equalTo: backgroundCell.trailingAnchor, constant: -10)
         ])
         
         NSLayoutConstraint.activate([
@@ -142,14 +144,14 @@ class WorkoutTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate([
             numberOfExercisesStackView.topAnchor.constraint(equalTo: nameExerciseLabel.bottomAnchor, constant: 0),
             numberOfExercisesStackView.leadingAnchor.constraint(equalTo: pictureView.trailingAnchor, constant: 10),
-            numberOfExercisesStackView.trailingAnchor.constraint(equalTo: backgroundCell.trailingAnchor, constant: -10)
+            numberOfExercisesStackView.heightAnchor.constraint(equalToConstant: 20)
         ])
         
         NSLayoutConstraint.activate([
             startButton.topAnchor.constraint(equalTo: numberOfExercisesStackView.bottomAnchor, constant: 3),
             startButton.leadingAnchor.constraint(equalTo: pictureView.trailingAnchor, constant: 10),
             startButton.trailingAnchor.constraint(equalTo: backgroundCell.trailingAnchor, constant: -10),
-            startButton.heightAnchor.constraint(equalToConstant: 27)
+            startButton.heightAnchor.constraint(equalToConstant: 29)
         ])
         
     }
