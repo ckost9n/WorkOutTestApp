@@ -44,6 +44,27 @@ class CalendarView: UIView {
         collectionView.delegate = self
         collectionView.dataSource = self
     }
+    
+    private func weekArray() -> [[String]] {
+        
+        let dateFormater = DateFormatter()
+        dateFormater.locale = Locale(identifier: "ru_RU")
+        dateFormater.dateFormat = "EEEEEE"
+        
+        var weekArray: [[String]] = [[], []]
+        let calendar = Calendar.current
+        let today = Date()
+        
+        for i in -6...0 {
+            let date = calendar.date(byAdding: .weekday, value: i, to: today)
+            guard let date = date else { return weekArray }
+            let components = calendar.dateComponents([.day], from: date)
+            weekArray[1].append(String(components.day ?? 0))
+            let weekday = dateFormater.string(from: date)
+            weekArray[0].append(String(weekday))
+        }
+        return weekArray
+    }
 
 }
 
@@ -57,7 +78,11 @@ extension CalendarView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: idCalendarCell, for: indexPath) as! CalendarCollectionViewCell
+        cell.configure(weekArray: weekArray(), indexPath: indexPath)
         
+        if indexPath.row == 6 {
+            collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .right)
+        }
         
         return cell
     }

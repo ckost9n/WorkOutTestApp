@@ -51,6 +51,11 @@ class CalendarCollectionViewCell: UICollectionViewCell {
         setConstraints()
     }
     
+    func configure(weekArray: [[String]], indexPath: IndexPath) {
+        numberOfDayLabel.text = weekArray[1][indexPath.item]
+        dayOfWeekLabel.text = weekArray[0][indexPath.item]
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
