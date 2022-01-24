@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class MainViewController: UIViewController {
     
@@ -93,10 +94,19 @@ class MainViewController: UIViewController {
     private let calendarView = CalendarView()
     private let weatherView = WeatherView()
     
+    private let localRealm = try! Realm()
+    private var workoutArray: Results<WorkoutModel>! = nil
+    
     override func viewDidLayoutSubviews() {
         userPhotoImageView.layer.cornerRadius = userPhotoImageView.frame.width / 2
         calendarView.layer.cornerRadius = calendarView.frame.height / 7
         addWorkoutButton.layer.cornerRadius = addWorkoutButton.frame.height / 8
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableView.reloadData()
     }
 
     override func viewDidLoad() {
@@ -105,10 +115,11 @@ class MainViewController: UIViewController {
         setupViews()
         setConstraints()
         setDelegate()
+        getWotkouts(date: Date())
         tableView.register(WorkoutTableViewCell.self, forCellReuseIdentifier: idWorkOutTableViewCell)
         
-//        workoutImageView.isHidden = true
-        tableView.isHidden = true
+        workoutImageView.isHidden = true
+//        tableView.isHidden = true
     }
     
     private func setDelegate() {
@@ -118,8 +129,29 @@ class MainViewController: UIViewController {
     
     @objc private func addWorkoutButtonTapped() {
         let newWorkoutVC = NewWorkoutViewController()
-//        newWorkoutVC.modalPresentationStyle = .fullScreen
+        newWorkoutVC.modalPresentationStyle = .fullScreen
         present(newWorkoutVC, animated: true)
+        
+    }
+    
+    private func getWotkouts(date: Date) {
+        
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.weekday], from: date)
+        guard let weekday = components.weekday else { return }
+        
+        let dateStart = date
+        let dateEnd: Date = {
+            let components = DateComponents(day: 1, second: -1)
+            return Calendar.current.date(byAdding: components, to: dateStart) ?? Date()
+        }()
+        
+        let predicateRepeat = NSPredicate(format: "workoutNumberOfDay = \(weekday) AND workoutRepeat = true")
+        let pridecateUnrepeat = NSPredicate(format: "workoutRepeat = false AND workoutDate BETWEEN %@", [dateStart, dateEnd])
+        let compound = NSCompoundPredicate(type: .or, subpredicates: [predicateRepeat, pridecateUnrepeat])
+        
+        workoutArray = localRealm.objects(WorkoutModel.self).filter(compound).sorted(byKeyPath: "workoutName")
+        tableView.reloadData()
         
     }
 
@@ -144,16 +176,21 @@ class MainViewController: UIViewController {
 extension MainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        testDataArray.count
+//        testDataArray.count
+        workoutArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: idWorkOutTableViewCell, for: indexPath) as! WorkoutTableViewCell
-        let workoutData = testDataArray[indexPath.row]
-        cell.nameExerciseLabel.text = workoutData.nameExercise
-        cell.repsLabel.text = "\(workoutData.duration): \(workoutData.durationNumber)"
-        cell.setsLabel.text = "Sets: \(workoutData.setsNumber)"
-        cell.workoutImageView.image = workoutData.exerciseImage
+        
+        let model = workoutArray[indexPath.row]
+        cell.configure(model: model)
+        
+//        let workoutData = testDataArray[indexPath.row]
+//        cell.nameExerciseLabel.text = workoutData.nameExercise
+//        cell.repsLabel.text = "\(workoutData.duration): \(workoutData.durationNumber)"
+//        cell.setsLabel.text = "Sets: \(workoutData.setsNumber)"
+//        cell.workoutImageView.image = workoutData.exerciseImage
         
         return cell
     }

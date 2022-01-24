@@ -25,7 +25,7 @@ class RepsOrTimerView: UIView {
         return label
     }()
     
-    private let numberOfSetsLabel: UILabel = {
+    let numberOfSetsLabel: UILabel = {
        let label = UILabel()
         label.textColor = .specialGray
         label.textAlignment = .right
@@ -58,7 +58,7 @@ class RepsOrTimerView: UIView {
         return label
     }()
     
-    private let numberOfRepsLabel: UILabel = {
+    let numberOfRepsLabel: UILabel = {
        let label = UILabel()
         label.textColor = .specialGray
         label.textAlignment = .right
@@ -89,7 +89,7 @@ class RepsOrTimerView: UIView {
         return label
     }()
     
-    private let numberOfTimerLabel: UILabel = {
+    let numberOfTimerLabel: UILabel = {
        let label = UILabel()
         label.textColor = .specialGray
         label.textAlignment = .right
