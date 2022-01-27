@@ -7,9 +7,15 @@
 
 import UIKit
 
+protocol SelectCollectionViewItemProtocol: AnyObject {
+    func selectItem(date: Date)
+}
+
 class CalendarView: UIView {
     
     private let idCalendarCell = "idCalendarCell"
+    
+    weak var cellCollectionViewDelegate: SelectCollectionViewItemProtocol?
     
     private let collectionView: UICollectionView = {
        let layout = UICollectionViewFlowLayout()
@@ -95,7 +101,23 @@ extension CalendarView: UICollectionViewDataSource {
 extension CalendarView: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("\(indexPath)")
+        
+        let calendar = Calendar.current
+        let formater = DateFormatter()
+        formater.timeZone = TimeZone(abbreviation: "UTC")
+        formater.dateFormat = "yyyy/MM/dd HH:mm"
+        let components = calendar.dateComponents([.month, .year], from: Date())
+        guard let month = components.month else { return }
+        guard let year = components.year else { return }
+        
+        guard let cell = collectionView.cellForItem(at: indexPath) as? CalendarCollectionViewCell else { return }
+        guard let numberOfDayString = cell.numberOfDayLabel.text else { return }
+        guard let numberOfDay = Int(numberOfDayString) else { return }
+        
+        guard let date = formater.date(from: "\(year)/\(month)/\(numberOfDay) 00:00") else { return }
+        
+        cellCollectionViewDelegate?.selectItem(date: date)
+ 
     }
     
 }

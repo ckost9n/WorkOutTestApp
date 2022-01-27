@@ -116,6 +116,8 @@ class NewWorkoutViewController: UIViewController {
         let count = text.filter { $0.isNumber || $0.isLetter }.count
         
         if count != 0 && workoutModel.workoutSets != 0 && (workoutModel.workoutReps != 0 || workoutModel.workoutTimer != 0) {
+            print(workoutModel.workoutTimer)
+            print(workoutModel.workoutReps)
             RealmManager.shared.saveWorkoutModel(model: workoutModel)
             alertOk(title: "Success", message: nil)
             workoutModel = WorkoutModel()
@@ -145,15 +147,6 @@ class NewWorkoutViewController: UIViewController {
         setModel()
 //        RealmManager.shared.saveWorkoutModel(model: workoutModel)
         saveModel()
-//        var simpleValue = "1"
-//        simpleValue = dateAndRepeatView.repeatSwitch.isOn ? "1" : "2"
-//        print(simpleValue)
-        
-//        if dateAndRepeatView.repeatSwitch.isOn {
-//            print("1")
-//        } else {
-//            print("2")
-//        }
         
     }
     

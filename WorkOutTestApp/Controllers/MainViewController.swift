@@ -125,6 +125,7 @@ class MainViewController: UIViewController {
     private func setDelegate() {
         tableView.delegate = self
         tableView.dataSource = self
+        calendarView.cellCollectionViewDelegate = self
     }
     
     @objc private func addWorkoutButtonTapped() {
@@ -137,10 +138,18 @@ class MainViewController: UIViewController {
     private func getWotkouts(date: Date) {
         
         let calendar = Calendar.current
-        let components = calendar.dateComponents([.weekday], from: date)
-        guard let weekday = components.weekday else { return }
+        let formater = DateFormatter()
+        let components = calendar.dateComponents([.weekday, .day, .month, .year], from: date)
         
-        let dateStart = date
+        guard let weekday = components.weekday else { return }
+        guard let day = components.day else { return }
+        guard let month = components.month else { return }
+        guard let year = components.year else { return }
+        
+        formater.timeZone = TimeZone(abbreviation: "UTC")
+        formater.dateFormat = "yyyy/MM/dd HH:mm"
+        
+        guard let dateStart = formater.date(from: "\(year)/\(month)/\(day) 00:00") else { return }
         let dateEnd: Date = {
             let components = DateComponents(day: 1, second: -1)
             return Calendar.current.date(byAdding: components, to: dateStart) ?? Date()
@@ -171,12 +180,21 @@ class MainViewController: UIViewController {
 
 }
 
+// MARK: - SelectCollectionViewItemProtocol
+
+extension MainViewController: SelectCollectionViewItemProtocol {
+    
+    func selectItem(date: Date) {
+        getWotkouts(date: date)
+    }
+
+}
+
 // MARK: - UITableViewDataSource
 
 extension MainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        testDataArray.count
         workoutArray.count
     }
     
@@ -185,12 +203,7 @@ extension MainViewController: UITableViewDataSource {
         
         let model = workoutArray[indexPath.row]
         cell.configure(model: model)
-        
-//        let workoutData = testDataArray[indexPath.row]
-//        cell.nameExerciseLabel.text = workoutData.nameExercise
-//        cell.repsLabel.text = "\(workoutData.duration): \(workoutData.durationNumber)"
-//        cell.setsLabel.text = "Sets: \(workoutData.setsNumber)"
-//        cell.workoutImageView.image = workoutData.exerciseImage
+        cell.cellStartWorkoutDelegate = self
         
         return cell
     }
@@ -205,7 +218,46 @@ extension MainViewController: UITableViewDelegate {
         100
     }
     
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let action = UIContextualAction(style: .destructive, title: "") { _, _, _ in
+            let deleteModel = self.workoutArray[indexPath.row]
+            RealmManager.shared.deleteWorkoutModel(model: deleteModel)
+            tableView.reloadData()
+        }
+        
+        action.backgroundColor = .specialBackground
+        action.image = UIImage(named: "delete")
+        
+        return UISwipeActionsConfiguration(actions: [action])
+        
+    }
+    
 }
+
+// MARK: - StartWorkoutProtocol
+
+extension MainViewController: StartWorkoutProtocol {
+    
+    func startButtonTapped(model: WorkoutModel) {
+        
+        if model.workoutTimer == 0 {
+            
+            let startWorkoutVC = RepsWorkoutViewController()
+            startWorkoutVC.modalPresentationStyle = .fullScreen
+            startWorkoutVC.workoutModel = model
+            present(startWorkoutVC, animated: true)
+        } else {
+            print("Timer")
+            
+        }
+        
+        
+    }
+ 
+}
+
+
 
 // MARK: - Set Constraints
 

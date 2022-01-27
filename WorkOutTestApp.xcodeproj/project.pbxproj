@@ -35,6 +35,9 @@
 		3C7CCE29279B2ED0005305E7 /* WorkoutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7CCE28279B2ED0005305E7 /* WorkoutModel.swift */; };
 		3C7CCE2C279EECCB005305E7 /* RalmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7CCE2B279EECCB005305E7 /* RalmManager.swift */; };
 		3C7CCE2F279EFE42005305E7 /* SimpleAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7CCE2E279EFE42005305E7 /* SimpleAlert.swift */; };
+		3C7CCE3127A00E88005305E7 /* RepsWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7CCE3027A00E88005305E7 /* RepsWorkoutViewController.swift */; };
+		3C7CCE3427A01185005305E7 /* WorkoutParametersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7CCE3327A01185005305E7 /* WorkoutParametersView.swift */; };
+		3C7CCE3727A18070005305E7 /* OkCancelAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7CCE3627A18070005305E7 /* OkCancelAlert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +69,9 @@
 		3C7CCE28279B2ED0005305E7 /* WorkoutModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutModel.swift; sourceTree = "<group>"; };
 		3C7CCE2B279EECCB005305E7 /* RalmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RalmManager.swift; sourceTree = "<group>"; };
 		3C7CCE2E279EFE42005305E7 /* SimpleAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleAlert.swift; sourceTree = "<group>"; };
+		3C7CCE3027A00E88005305E7 /* RepsWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepsWorkoutViewController.swift; sourceTree = "<group>"; };
+		3C7CCE3327A01185005305E7 /* WorkoutParametersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutParametersView.swift; sourceTree = "<group>"; };
+		3C7CCE3627A18070005305E7 /* OkCancelAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OkCancelAlert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +109,8 @@
 				3C7CCDF027915E2E005305E7 /* Application */,
 				3C7CCDF127915E45005305E7 /* Models */,
 				3C7CCDF327915EB8005305E7 /* Views */,
+				3C7CCE3227A01151005305E7 /* StartWorkoutVC */,
+				3C7CCE3527A1481F005305E7 /* StartWorkoutVC */,
 				3C7CCE2D279EFE22005305E7 /* Alerts */,
 				3C7CCDF427915EE0005305E7 /* Controllers */,
 				3C7CCE2A279EECA5005305E7 /* Services */,
@@ -156,6 +164,7 @@
 				3C7CCE1A2799A76B005305E7 /* MainTabBarController.swift */,
 				3C7CCDE027915D7F005305E7 /* MainViewController.swift */,
 				3C7CCE1427986ED0005305E7 /* NewWorkoutViewController.swift */,
+				3C7CCE3027A00E88005305E7 /* RepsWorkoutViewController.swift */,
 				3C7CCE16279997A6005305E7 /* StaisticViewController.swift */,
 				3C7CCE18279997B6005305E7 /* ProfileViewController.swift */,
 			);
@@ -231,8 +240,25 @@
 			isa = PBXGroup;
 			children = (
 				3C7CCE2E279EFE42005305E7 /* SimpleAlert.swift */,
+				3C7CCE3627A18070005305E7 /* OkCancelAlert.swift */,
 			);
 			path = Alerts;
+			sourceTree = "<group>";
+		};
+		3C7CCE3227A01151005305E7 /* StartWorkoutVC */ = {
+			isa = PBXGroup;
+			children = (
+				3C7CCE3327A01185005305E7 /* WorkoutParametersView.swift */,
+			);
+			path = StartWorkoutVC;
+			sourceTree = "<group>";
+		};
+		3C7CCE3527A1481F005305E7 /* StartWorkoutVC */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = StartWorkoutVC;
+			path = Views/StartWorkoutVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -320,7 +346,9 @@
 				3C7CCE0827919234005305E7 /* CalendarView.swift in Sources */,
 				3C7CCE1527986ED0005305E7 /* NewWorkoutViewController.swift in Sources */,
 				3C7CCE17279997A7005305E7 /* StaisticViewController.swift in Sources */,
+				3C7CCE3127A00E88005305E7 /* RepsWorkoutViewController.swift in Sources */,
 				3C7CCDE127915D7F005305E7 /* MainViewController.swift in Sources */,
+				3C7CCE3427A01185005305E7 /* WorkoutParametersView.swift in Sources */,
 				3C7CCE1127935082005305E7 /* WorkoutTableViewCell.swift in Sources */,
 				3C7CCE132793558C005305E7 /* WorkoutTestModel.swift in Sources */,
 				3C7CCE2C279EECCB005305E7 /* RalmManager.swift in Sources */,
@@ -336,6 +364,7 @@
 				3C7CCE0E27931040005305E7 /* WeatherView.swift in Sources */,
 				3C7CCDFC27916626005305E7 /* UIColor + Extension.swift in Sources */,
 				3C7CCE222799B6AD005305E7 /* RepsOrTimerView.swift in Sources */,
+				3C7CCE3727A18070005305E7 /* OkCancelAlert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
