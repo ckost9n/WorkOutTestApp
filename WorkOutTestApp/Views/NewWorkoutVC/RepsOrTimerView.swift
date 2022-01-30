@@ -38,7 +38,7 @@ class RepsOrTimerView: UIView {
     var setsSlider: UISlider = {
        let slider = UISlider()
         slider.minimumValue = 1
-        slider.maximumValue = 50
+        slider.maximumValue = 10
         slider.maximumTrackTintColor = .specialLightBrown
         slider.minimumTrackTintColor = .specialGreen
         slider.addTarget(self, action: #selector(setsSliderChanged), for: .valueChanged)

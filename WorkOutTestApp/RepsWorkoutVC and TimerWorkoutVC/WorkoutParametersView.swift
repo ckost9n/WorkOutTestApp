@@ -49,7 +49,7 @@ class WorkoutParametersView: UIView {
         return view
     }()
 
-    let repsLabel: UILabel = {
+    let repsOrTimerLabel: UILabel = {
        let label = UILabel()
         label.text = "Reps"
         label.textColor = .specialGray
@@ -58,7 +58,7 @@ class WorkoutParametersView: UIView {
         return label
     }()
     
-    let numberOfRepsLabel: UILabel = {
+    let numberOfRepsOrTimerLabel: UILabel = {
        let label = UILabel()
         label.text = "20"
         label.textColor = .specialGray
@@ -135,7 +135,7 @@ class WorkoutParametersView: UIView {
         addSubview(setsStackView)
         addSubview(setsLineView)
         
-        repsStackView = UIStackView(arrangedSubviews: [repsLabel, numberOfRepsLabel],
+        repsStackView = UIStackView(arrangedSubviews: [repsOrTimerLabel, numberOfRepsOrTimerLabel],
                                     axis: .horizontal,
                                     spacing: 10)
         addSubview(repsStackView)

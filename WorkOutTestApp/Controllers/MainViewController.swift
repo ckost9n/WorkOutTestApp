@@ -137,23 +137,28 @@ class MainViewController: UIViewController {
     
     private func getWotkouts(date: Date) {
         
-        let calendar = Calendar.current
-        let formater = DateFormatter()
-        let components = calendar.dateComponents([.weekday, .day, .month, .year], from: date)
+//        let calendar = Calendar.current
+//        let formater = DateFormatter()
+//        let components = calendar.dateComponents([.weekday, .day, .month, .year], from: date)
+//
+//        guard let weekday = components.weekday else { return }
+//        guard let day = components.day else { return }
+//        guard let month = components.month else { return }
+//        guard let year = components.year else { return }
+//
+//        formater.timeZone = TimeZone(abbreviation: "UTC")
+//        formater.dateFormat = "yyyy/MM/dd HH:mm"
+//
+//        guard let dateStart = formater.date(from: "\(year)/\(month)/\(day) 00:00") else { return }
+//        let dateEnd: Date = {
+//            let components = DateComponents(day: 1, second: -1)
+//            return Calendar.current.date(byAdding: components, to: dateStart) ?? Date()
+//        }()
         
-        guard let weekday = components.weekday else { return }
-        guard let day = components.day else { return }
-        guard let month = components.month else { return }
-        guard let year = components.year else { return }
-        
-        formater.timeZone = TimeZone(abbreviation: "UTC")
-        formater.dateFormat = "yyyy/MM/dd HH:mm"
-        
-        guard let dateStart = formater.date(from: "\(year)/\(month)/\(day) 00:00") else { return }
-        let dateEnd: Date = {
-            let components = DateComponents(day: 1, second: -1)
-            return Calendar.current.date(byAdding: components, to: dateStart) ?? Date()
-        }()
+        let dateTimeZone = date.localDate()
+        let weekday = dateTimeZone.getWeekdayNumber()
+        let dateStart = dateTimeZone.startEndDate().0
+        let dateEnd = dateTimeZone.startEndDate().1
         
         let predicateRepeat = NSPredicate(format: "workoutNumberOfDay = \(weekday) AND workoutRepeat = true")
         let pridecateUnrepeat = NSPredicate(format: "workoutRepeat = false AND workoutDate BETWEEN %@", [dateStart, dateEnd])
@@ -243,12 +248,15 @@ extension MainViewController: StartWorkoutProtocol {
         
         if model.workoutTimer == 0 {
             
-            let startWorkoutVC = RepsWorkoutViewController()
-            startWorkoutVC.modalPresentationStyle = .fullScreen
-            startWorkoutVC.workoutModel = model
-            present(startWorkoutVC, animated: true)
+            let repsWorkoutVC = RepsWorkoutViewController()
+            repsWorkoutVC.modalPresentationStyle = .fullScreen
+            repsWorkoutVC.workoutModel = model
+            present(repsWorkoutVC, animated: true)
         } else {
-            print("Timer")
+            let timerWorkoutVC = TimerWorkoutViewController()
+            timerWorkoutVC.modalPresentationStyle = .fullScreen
+            timerWorkoutVC.workoutModel = model
+            present(timerWorkoutVC, animated: true)
             
         }
         

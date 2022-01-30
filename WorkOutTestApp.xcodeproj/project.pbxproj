@@ -38,6 +38,8 @@
 		3C7CCE3127A00E88005305E7 /* RepsWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7CCE3027A00E88005305E7 /* RepsWorkoutViewController.swift */; };
 		3C7CCE3427A01185005305E7 /* WorkoutParametersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7CCE3327A01185005305E7 /* WorkoutParametersView.swift */; };
 		3C7CCE3727A18070005305E7 /* OkCancelAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7CCE3627A18070005305E7 /* OkCancelAlert.swift */; };
+		3C7CCE3927A2C3D2005305E7 /* TimerWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7CCE3827A2C3D2005305E7 /* TimerWorkoutViewController.swift */; };
+		3C7CCE3B27A7164B005305E7 /* Date + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7CCE3A27A7164B005305E7 /* Date + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +74,8 @@
 		3C7CCE3027A00E88005305E7 /* RepsWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepsWorkoutViewController.swift; sourceTree = "<group>"; };
 		3C7CCE3327A01185005305E7 /* WorkoutParametersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutParametersView.swift; sourceTree = "<group>"; };
 		3C7CCE3627A18070005305E7 /* OkCancelAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OkCancelAlert.swift; sourceTree = "<group>"; };
+		3C7CCE3827A2C3D2005305E7 /* TimerWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerWorkoutViewController.swift; sourceTree = "<group>"; };
+		3C7CCE3A27A7164B005305E7 /* Date + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,7 +113,7 @@
 				3C7CCDF027915E2E005305E7 /* Application */,
 				3C7CCDF127915E45005305E7 /* Models */,
 				3C7CCDF327915EB8005305E7 /* Views */,
-				3C7CCE3227A01151005305E7 /* StartWorkoutVC */,
+				3C7CCE3227A01151005305E7 /* RepsWorkoutVC and TimerWorkoutVC */,
 				3C7CCE3527A1481F005305E7 /* StartWorkoutVC */,
 				3C7CCE2D279EFE22005305E7 /* Alerts */,
 				3C7CCDF427915EE0005305E7 /* Controllers */,
@@ -165,6 +169,7 @@
 				3C7CCDE027915D7F005305E7 /* MainViewController.swift */,
 				3C7CCE1427986ED0005305E7 /* NewWorkoutViewController.swift */,
 				3C7CCE3027A00E88005305E7 /* RepsWorkoutViewController.swift */,
+				3C7CCE3827A2C3D2005305E7 /* TimerWorkoutViewController.swift */,
 				3C7CCE16279997A6005305E7 /* StaisticViewController.swift */,
 				3C7CCE18279997B6005305E7 /* ProfileViewController.swift */,
 			);
@@ -175,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				3C7CCDF627916409005305E7 /* UIKit */,
+				3C7CCE3A27A7164B005305E7 /* Date + Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -245,12 +251,12 @@
 			path = Alerts;
 			sourceTree = "<group>";
 		};
-		3C7CCE3227A01151005305E7 /* StartWorkoutVC */ = {
+		3C7CCE3227A01151005305E7 /* RepsWorkoutVC and TimerWorkoutVC */ = {
 			isa = PBXGroup;
 			children = (
 				3C7CCE3327A01185005305E7 /* WorkoutParametersView.swift */,
 			);
-			path = StartWorkoutVC;
+			path = "RepsWorkoutVC and TimerWorkoutVC";
 			sourceTree = "<group>";
 		};
 		3C7CCE3527A1481F005305E7 /* StartWorkoutVC */ = {
@@ -342,6 +348,7 @@
 			files = (
 				3C7CCDFA27916513005305E7 /* UIFont + Extension.swift in Sources */,
 				3C7CCE29279B2ED0005305E7 /* WorkoutModel.swift in Sources */,
+				3C7CCE3B27A7164B005305E7 /* Date + Extension.swift in Sources */,
 				3C7CCE0027916B15005305E7 /* UIStackView + Extension.swift in Sources */,
 				3C7CCE0827919234005305E7 /* CalendarView.swift in Sources */,
 				3C7CCE1527986ED0005305E7 /* NewWorkoutViewController.swift in Sources */,
@@ -350,6 +357,7 @@
 				3C7CCDE127915D7F005305E7 /* MainViewController.swift in Sources */,
 				3C7CCE3427A01185005305E7 /* WorkoutParametersView.swift in Sources */,
 				3C7CCE1127935082005305E7 /* WorkoutTableViewCell.swift in Sources */,
+				3C7CCE3927A2C3D2005305E7 /* TimerWorkoutViewController.swift in Sources */,
 				3C7CCE132793558C005305E7 /* WorkoutTestModel.swift in Sources */,
 				3C7CCE2C279EECCB005305E7 /* RalmManager.swift in Sources */,
 				3C7CCE1D2799AFA9005305E7 /* UILabel + Extension.swift in Sources */,

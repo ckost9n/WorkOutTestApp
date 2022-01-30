@@ -1,13 +1,13 @@
 //
-//  RepsWorkoutViewController.swift
+//  TimerWorkoutViewController.swift
 //  WorkOutTestApp
 //
-//  Created by Konstantin on 25.01.2022.
+//  Created by Konstantin on 27.01.2022.
 //
 
 import UIKit
 
-class RepsWorkoutViewController: UIViewController {
+class TimerWorkoutViewController: UIViewController {
     
     var workoutModel = WorkoutModel()
     
@@ -31,12 +31,23 @@ class RepsWorkoutViewController: UIViewController {
         return label
     }()
     
-    private let sportmanImageView: UIImageView = {
+    private let elipseImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "sportsman")
+        imageView.image = UIImage(named: "Ellipse")
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
+    }()
+    
+    let workoutTimerLabel: UILabel = {
+       let label = UILabel()
+        label.text = "00:00"
+        label.textColor = .specialGray
+        label.font = .robotoBold45()
+        label.textAlignment = .center
+        label.adjustsFontSizeToFitWidth = true
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
     
     private let detailsLabel = UILabel(text: "Details")
@@ -85,18 +96,43 @@ class RepsWorkoutViewController: UIViewController {
     }
     
     private func setWorkoutParameters() {
+        
+        let (min, sec) = { (secs: Int) -> (Int, Int) in
+            return (secs / 60, secs % 60)}(workoutModel.workoutTimer)
+        
+        var minTimer: String
+        var secTimer: String
+        
+        if min == 0 {
+            minTimer = "00"
+        } else if min > 0 && min < 10 {
+            minTimer = "0\(min)"
+        } else {
+            minTimer = String(min)
+        }
+        
+        if sec == 0 {
+            secTimer = "00"
+        } else if sec > 0 && sec < 10 {
+            secTimer = "0\(sec)"
+        } else {
+            secTimer = String(sec)
+        }
+ 
         workoutParametersView.workoutNameLabel.text = workoutModel.workoutName
         workoutParametersView.numberOfSetsLabel.text = "\(numberOfSet)/\(workoutModel.workoutSets)"
-        workoutParametersView.numberOfRepsOrTimerLabel.text = "\(workoutModel.workoutReps)"
+        workoutParametersView.numberOfRepsOrTimerLabel.text = min == 0 ? "\(sec) sec" : "\(min) min \(sec) sec"
+        workoutTimerLabel.text = "\(minTimer):\(secTimer)"
     }
     
     private func setupView() {
         view.backgroundColor = .specialBackground
-        workoutParametersView.repsOrTimerLabel.text = "Reps"
+        workoutParametersView.repsOrTimerLabel.text = "Timer"
         
         view.addSubview(startWorkoutLabel)
         view.addSubview(clouseButton)
-        view.addSubview(sportmanImageView)
+        view.addSubview(elipseImageView)
+        view.addSubview(workoutTimerLabel)
         view.addSubview(workoutParametersView)
         view.addSubview(detailsLabel)
         view.addSubview(finishButton)
@@ -117,14 +153,23 @@ class RepsWorkoutViewController: UIViewController {
         ])
         
         NSLayoutConstraint.activate([
-            sportmanImageView.topAnchor.constraint(equalTo: startWorkoutLabel.bottomAnchor, constant: 20),
-            sportmanImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            sportmanImageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7),
-            sportmanImageView.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7)
+            elipseImageView.topAnchor.constraint(equalTo: startWorkoutLabel.bottomAnchor, constant: 20),
+            elipseImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            elipseImageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7),
+            elipseImageView.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7)
+        ])
+        
+        NSLayoutConstraint.activate([
+            workoutTimerLabel.topAnchor.constraint(equalTo: elipseImageView.topAnchor, constant: 0),
+            workoutTimerLabel.bottomAnchor.constraint(equalTo: elipseImageView.bottomAnchor, constant: 0),
+            workoutTimerLabel.leadingAnchor.constraint(equalTo: elipseImageView.leadingAnchor, constant: 0),
+            workoutTimerLabel.trailingAnchor.constraint(equalTo: elipseImageView.trailingAnchor, constant: 0),
+            workoutTimerLabel.centerXAnchor.constraint(equalTo: elipseImageView.centerXAnchor),
+            workoutTimerLabel.centerYAnchor.constraint(equalTo: elipseImageView.centerYAnchor),
         ])
 
         NSLayoutConstraint.activate([
-            detailsLabel.topAnchor.constraint(equalTo: sportmanImageView.bottomAnchor, constant: 20),
+            detailsLabel.topAnchor.constraint(equalTo: elipseImageView.bottomAnchor, constant: 20),
             detailsLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
             detailsLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
         ])
@@ -152,8 +197,8 @@ class RepsWorkoutViewController: UIViewController {
 // MARK: - NextSetProtocol
 
 
-extension RepsWorkoutViewController: NextSetProtocol {
-    
+extension TimerWorkoutViewController: NextSetProtocol {
+
     func nextSetTapped() {
         if numberOfSet < workoutModel.workoutSets {
             numberOfSet += 1
@@ -161,7 +206,7 @@ extension RepsWorkoutViewController: NextSetProtocol {
         } else {
             alertOk(title: "Error", message: "Finish your workout")
         }
-        
+
     }
-    
+
 }

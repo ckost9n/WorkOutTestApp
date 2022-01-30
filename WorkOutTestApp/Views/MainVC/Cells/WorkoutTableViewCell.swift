@@ -114,7 +114,13 @@ class WorkoutTableViewCell: UITableViewCell {
         let (min, sec) = { (secs: Int) -> (Int, Int) in
             return (secs / 60, secs % 60)}(workoutModel.workoutTimer)
         
-        repsLabel.text = (workoutModel.workoutTimer == 0 ? "Reps: \(workoutModel.workoutReps)" : "Timer: \(min) min \(sec) sec")
+        
+        
+        if workoutModel.workoutTimer == 0 {
+            repsLabel.text = "Reps: \(workoutModel.workoutReps)"
+        } else {
+            repsLabel.text = min == 0 ? "Timer: \(sec) sec" : "Timer: \(min) min \(sec) sec"
+        }
         
         setsLabel.text = "Sets: \(workoutModel.workoutSets)"
         
