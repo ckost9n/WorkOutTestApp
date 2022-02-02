@@ -9,6 +9,7 @@ import UIKit
 
 protocol NextSetProtocol: AnyObject {
     func nextSetTapped()
+    func editingTapped()
 }
 
 class WorkoutParametersView: UIView {
@@ -74,7 +75,7 @@ class WorkoutParametersView: UIView {
         return view
     }()
     
-    private let editingButton: UIButton = {
+    let editingButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(named: "editButton")?.withRenderingMode(.alwaysOriginal), for: .normal)
         button.setTitle("Editing", for: .normal)
@@ -85,7 +86,7 @@ class WorkoutParametersView: UIView {
         return button
     }()
     
-    private let nextSetsButton: UIButton = {
+    let nextSetsButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("NEXT SET", for: .normal)
         button.backgroundColor = .specialYellow
@@ -110,7 +111,7 @@ class WorkoutParametersView: UIView {
     }
     
     @objc func editingButtonTapped() {
-        print(#function)
+        cellNextSetDelegate?.editingTapped()
     }
     
     @objc func nextSetsButtonTapped() {

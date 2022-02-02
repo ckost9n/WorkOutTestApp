@@ -40,6 +40,8 @@
 		3C7CCE3727A18070005305E7 /* OkCancelAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7CCE3627A18070005305E7 /* OkCancelAlert.swift */; };
 		3C7CCE3927A2C3D2005305E7 /* TimerWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7CCE3827A2C3D2005305E7 /* TimerWorkoutViewController.swift */; };
 		3C7CCE3B27A7164B005305E7 /* Date + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7CCE3A27A7164B005305E7 /* Date + Extension.swift */; };
+		3C7CCE3D27A7EB77005305E7 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7CCE3C27A7EB77005305E7 /* CustomAlert.swift */; };
+		3C7CCE3F27A94D2B005305E7 /* Int + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7CCE3E27A94D2A005305E7 /* Int + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +78,8 @@
 		3C7CCE3627A18070005305E7 /* OkCancelAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OkCancelAlert.swift; sourceTree = "<group>"; };
 		3C7CCE3827A2C3D2005305E7 /* TimerWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerWorkoutViewController.swift; sourceTree = "<group>"; };
 		3C7CCE3A27A7164B005305E7 /* Date + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date + Extension.swift"; sourceTree = "<group>"; };
+		3C7CCE3C27A7EB77005305E7 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
+		3C7CCE3E27A94D2A005305E7 /* Int + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,8 +117,6 @@
 				3C7CCDF027915E2E005305E7 /* Application */,
 				3C7CCDF127915E45005305E7 /* Models */,
 				3C7CCDF327915EB8005305E7 /* Views */,
-				3C7CCE3227A01151005305E7 /* RepsWorkoutVC and TimerWorkoutVC */,
-				3C7CCE3527A1481F005305E7 /* StartWorkoutVC */,
 				3C7CCE2D279EFE22005305E7 /* Alerts */,
 				3C7CCDF427915EE0005305E7 /* Controllers */,
 				3C7CCE2A279EECA5005305E7 /* Services */,
@@ -156,6 +158,7 @@
 		3C7CCDF327915EB8005305E7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3C7CCE3227A01151005305E7 /* RepsWorkoutVC and TimerWorkoutVC */,
 				3C7CCE0627919217005305E7 /* MainVC */,
 				3C7CCE1E2799B528005305E7 /* NewWorkoutVC */,
 			);
@@ -193,6 +196,7 @@
 				3C7CCDFD27916A37005305E7 /* UIView + Extansion.swift */,
 				3C7CCDFF27916B15005305E7 /* UIStackView + Extension.swift */,
 				3C7CCE1C2799AFA9005305E7 /* UILabel + Extension.swift */,
+				3C7CCE3E27A94D2A005305E7 /* Int + Extension.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -247,6 +251,7 @@
 			children = (
 				3C7CCE2E279EFE42005305E7 /* SimpleAlert.swift */,
 				3C7CCE3627A18070005305E7 /* OkCancelAlert.swift */,
+				3C7CCE3C27A7EB77005305E7 /* CustomAlert.swift */,
 			);
 			path = Alerts;
 			sourceTree = "<group>";
@@ -257,14 +262,6 @@
 				3C7CCE3327A01185005305E7 /* WorkoutParametersView.swift */,
 			);
 			path = "RepsWorkoutVC and TimerWorkoutVC";
-			sourceTree = "<group>";
-		};
-		3C7CCE3527A1481F005305E7 /* StartWorkoutVC */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = StartWorkoutVC;
-			path = Views/StartWorkoutVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -356,6 +353,7 @@
 				3C7CCE3127A00E88005305E7 /* RepsWorkoutViewController.swift in Sources */,
 				3C7CCDE127915D7F005305E7 /* MainViewController.swift in Sources */,
 				3C7CCE3427A01185005305E7 /* WorkoutParametersView.swift in Sources */,
+				3C7CCE3F27A94D2B005305E7 /* Int + Extension.swift in Sources */,
 				3C7CCE1127935082005305E7 /* WorkoutTableViewCell.swift in Sources */,
 				3C7CCE3927A2C3D2005305E7 /* TimerWorkoutViewController.swift in Sources */,
 				3C7CCE132793558C005305E7 /* WorkoutTestModel.swift in Sources */,
@@ -373,6 +371,7 @@
 				3C7CCDFC27916626005305E7 /* UIColor + Extension.swift in Sources */,
 				3C7CCE222799B6AD005305E7 /* RepsOrTimerView.swift in Sources */,
 				3C7CCE3727A18070005305E7 /* OkCancelAlert.swift in Sources */,
+				3C7CCE3D27A7EB77005305E7 /* CustomAlert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
