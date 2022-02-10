@@ -113,8 +113,6 @@ class NewWorkoutViewController: UIViewController {
         let count = text.filter { $0.isNumber || $0.isLetter }.count
         
         if count != 0 && workoutModel.workoutSets != 0 && (workoutModel.workoutReps != 0 || workoutModel.workoutTimer != 0) {
-            print(workoutModel.workoutTimer)
-            print(workoutModel.workoutReps)
             RealmManager.shared.saveWorkoutModel(model: workoutModel)
             alertOk(title: "Success", message: nil)
             workoutModel = WorkoutModel()
@@ -237,16 +235,6 @@ class NewWorkoutViewController: UIViewController {
         ])
         
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 

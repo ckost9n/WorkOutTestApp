@@ -23,13 +23,6 @@ class MainViewController: UIViewController {
         return imageView
     }()
     
-//    private let calendarView: UIView = {
-//        let view = UIView()
-//        view.backgroundColor = .specialGreen
-//        view.translatesAutoresizingMaskIntoConstraints = false
-//        return view
-//    }()
-    
     private let userNameLabel: UILabel = {
        let label = UILabel()
         label.text = "Hello New User!!!"
@@ -76,7 +69,7 @@ class MainViewController: UIViewController {
        let imageView = UIImageView()
         imageView.image = UIImage(named: "FrameWorkout")
         imageView.translatesAutoresizingMaskIntoConstraints = false
-//        imageView.isHidden = true
+        imageView.isHidden = false
         return imageView
     }()
     
@@ -118,8 +111,6 @@ class MainViewController: UIViewController {
         getWotkouts(date: Date())
         tableView.register(WorkoutTableViewCell.self, forCellReuseIdentifier: idWorkOutTableViewCell)
         
-        workoutImageView.isHidden = true
-//        tableView.isHidden = true
     }
     
     private func setDelegate() {
@@ -137,16 +128,26 @@ class MainViewController: UIViewController {
     
     private func getWotkouts(date: Date) {
         
-        let dateTimeZone = date.localDate()
+        let dateTimeZone = date
         let weekday = dateTimeZone.getWeekdayNumber()
         let dateStart = dateTimeZone.startEndDate().0
         let dateEnd = dateTimeZone.startEndDate().1
+        print(dateTimeZone)
         
         let predicateRepeat = NSPredicate(format: "workoutNumberOfDay = \(weekday) AND workoutRepeat = true")
         let pridecateUnrepeat = NSPredicate(format: "workoutRepeat = false AND workoutDate BETWEEN %@", [dateStart, dateEnd])
         let compound = NSCompoundPredicate(type: .or, subpredicates: [predicateRepeat, pridecateUnrepeat])
         
         workoutArray = localRealm.objects(WorkoutModel.self).filter(compound).sorted(byKeyPath: "workoutName")
+        
+        if workoutArray.count == 0 {
+            tableView.isHidden = true
+            workoutImageView.isHidden = false
+        } else {
+            workoutImageView.isHidden = true
+            tableView.isHidden = false
+        }
+        
         tableView.reloadData()
         
     }

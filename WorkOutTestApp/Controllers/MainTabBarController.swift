@@ -26,7 +26,7 @@ class MainTabBarController: UITabBarController {
     
     private func setupItems() {
         let mainVC = MainViewController()
-        let statisticVC = StaisticViewController()
+        let statisticVC = StatisticViewController()
         let profileVC = ProfileViewController()
         
         setViewControllers([mainVC, statisticVC, profileVC], animated: true)

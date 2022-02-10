@@ -25,7 +25,6 @@ extension Date {
         
         let formater = DateFormatter()
         formater.dateFormat = "yyyy/MM/dd"
-        formater.timeZone = TimeZone(abbreviation: "UTC")
         
         let calendar = Calendar.current
         let day = calendar.component(.day, from: self)
@@ -33,16 +32,23 @@ extension Date {
         let year = calendar.component(.year, from: self)
         
         let dateStart = formater.date(from: "\(year)/\(month)/\(day)") ?? Date()
+        
+        let local = dateStart.localDate()
         let dateEnd: Date = {
-            let components = DateComponents(day: 1, second: -1)
-            return Calendar.current.date(byAdding: components, to: dateStart) ?? Date()
+            let components = DateComponents(day: 1)
+            return Calendar.current.date(byAdding: components, to: local) ?? Date()
         }()
         
-        return (dateStart, dateEnd)
+        return (local, dateEnd)
     }
     
     func offsetDays(days: Int) -> Date {
         let offsetDay = Calendar.current.date(byAdding: .day, value: -days, to: self) ?? Date()
+        return offsetDay
+    }
+    
+    func offsetMonth(month: Int) -> Date {
+        let offsetDay = Calendar.current.date(byAdding: .month, value: -month, to: self) ?? Date()
         return offsetDay
     }
     
@@ -53,15 +59,15 @@ extension Date {
         formater.dateFormat = "EEEEEE"
         
         var weekArray: [[String]] = [[], []]
-        let calendar = Calendar.current
+        var calendar = Calendar.current
+        calendar.timeZone = TimeZone(abbreviation: "UTC")!
         
-        for weekdayNumber in -7...(-1) {
+        for weekdayNumber in -6...0 {
             let date = calendar.date(byAdding: .weekday, value: weekdayNumber, to: self) ?? Date()
             let day = calendar.component(.day, from: date)
             weekArray[1].append("\(day)")
             let weekday = formater.string(from: date)
             weekArray[0].append(weekday)
-            print(day)
         }
         return weekArray
     }

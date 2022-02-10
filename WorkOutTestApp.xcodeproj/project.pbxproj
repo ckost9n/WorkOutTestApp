@@ -24,7 +24,7 @@
 		3C7CCE1127935082005305E7 /* WorkoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7CCE1027935082005305E7 /* WorkoutTableViewCell.swift */; };
 		3C7CCE132793558C005305E7 /* WorkoutTestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7CCE122793558C005305E7 /* WorkoutTestModel.swift */; };
 		3C7CCE1527986ED0005305E7 /* NewWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7CCE1427986ED0005305E7 /* NewWorkoutViewController.swift */; };
-		3C7CCE17279997A7005305E7 /* StaisticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7CCE16279997A6005305E7 /* StaisticViewController.swift */; };
+		3C7CCE17279997A7005305E7 /* StatisticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7CCE16279997A6005305E7 /* StatisticViewController.swift */; };
 		3C7CCE19279997B6005305E7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7CCE18279997B6005305E7 /* ProfileViewController.swift */; };
 		3C7CCE1B2799A76B005305E7 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7CCE1A2799A76B005305E7 /* MainTabBarController.swift */; };
 		3C7CCE1D2799AFA9005305E7 /* UILabel + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7CCE1C2799AFA9005305E7 /* UILabel + Extension.swift */; };
@@ -42,6 +42,7 @@
 		3C7CCE3B27A7164B005305E7 /* Date + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7CCE3A27A7164B005305E7 /* Date + Extension.swift */; };
 		3C7CCE3D27A7EB77005305E7 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7CCE3C27A7EB77005305E7 /* CustomAlert.swift */; };
 		3C7CCE3F27A94D2B005305E7 /* Int + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7CCE3E27A94D2A005305E7 /* Int + Extension.swift */; };
+		3C7CCE4227AAB150005305E7 /* StatisticTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7CCE4127AAB150005305E7 /* StatisticTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,7 +65,7 @@
 		3C7CCE1027935082005305E7 /* WorkoutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTableViewCell.swift; sourceTree = "<group>"; };
 		3C7CCE122793558C005305E7 /* WorkoutTestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTestModel.swift; sourceTree = "<group>"; };
 		3C7CCE1427986ED0005305E7 /* NewWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWorkoutViewController.swift; sourceTree = "<group>"; };
-		3C7CCE16279997A6005305E7 /* StaisticViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaisticViewController.swift; sourceTree = "<group>"; };
+		3C7CCE16279997A6005305E7 /* StatisticViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticViewController.swift; sourceTree = "<group>"; };
 		3C7CCE18279997B6005305E7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		3C7CCE1A2799A76B005305E7 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		3C7CCE1C2799AFA9005305E7 /* UILabel + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extension.swift"; sourceTree = "<group>"; };
@@ -80,6 +81,7 @@
 		3C7CCE3A27A7164B005305E7 /* Date + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date + Extension.swift"; sourceTree = "<group>"; };
 		3C7CCE3C27A7EB77005305E7 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		3C7CCE3E27A94D2A005305E7 /* Int + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int + Extension.swift"; sourceTree = "<group>"; };
+		3C7CCE4127AAB150005305E7 /* StatisticTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StatisticTableViewCell.swift; path = WorkOutTestApp/Views/StatisticVC/StatisticTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +163,7 @@
 				3C7CCE3227A01151005305E7 /* RepsWorkoutVC and TimerWorkoutVC */,
 				3C7CCE0627919217005305E7 /* MainVC */,
 				3C7CCE1E2799B528005305E7 /* NewWorkoutVC */,
+				3C7CCE4027AAB08D005305E7 /* StatisticVC */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -173,7 +176,7 @@
 				3C7CCE1427986ED0005305E7 /* NewWorkoutViewController.swift */,
 				3C7CCE3027A00E88005305E7 /* RepsWorkoutViewController.swift */,
 				3C7CCE3827A2C3D2005305E7 /* TimerWorkoutViewController.swift */,
-				3C7CCE16279997A6005305E7 /* StaisticViewController.swift */,
+				3C7CCE16279997A6005305E7 /* StatisticViewController.swift */,
 				3C7CCE18279997B6005305E7 /* ProfileViewController.swift */,
 			);
 			path = Controllers;
@@ -264,6 +267,14 @@
 			path = "RepsWorkoutVC and TimerWorkoutVC";
 			sourceTree = "<group>";
 		};
+		3C7CCE4027AAB08D005305E7 /* StatisticVC */ = {
+			isa = PBXGroup;
+			children = (
+				3C7CCE4127AAB150005305E7 /* StatisticTableViewCell.swift */,
+			);
+			path = StatisticVC;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -349,7 +360,7 @@
 				3C7CCE0027916B15005305E7 /* UIStackView + Extension.swift in Sources */,
 				3C7CCE0827919234005305E7 /* CalendarView.swift in Sources */,
 				3C7CCE1527986ED0005305E7 /* NewWorkoutViewController.swift in Sources */,
-				3C7CCE17279997A7005305E7 /* StaisticViewController.swift in Sources */,
+				3C7CCE17279997A7005305E7 /* StatisticViewController.swift in Sources */,
 				3C7CCE3127A00E88005305E7 /* RepsWorkoutViewController.swift in Sources */,
 				3C7CCDE127915D7F005305E7 /* MainViewController.swift in Sources */,
 				3C7CCE3427A01185005305E7 /* WorkoutParametersView.swift in Sources */,
@@ -369,6 +380,7 @@
 				3C7CCE202799B68E005305E7 /* DateAndRepeatView.swift in Sources */,
 				3C7CCE0E27931040005305E7 /* WeatherView.swift in Sources */,
 				3C7CCDFC27916626005305E7 /* UIColor + Extension.swift in Sources */,
+				3C7CCE4227AAB150005305E7 /* StatisticTableViewCell.swift in Sources */,
 				3C7CCE222799B6AD005305E7 /* RepsOrTimerView.swift in Sources */,
 				3C7CCE3727A18070005305E7 /* OkCancelAlert.swift in Sources */,
 				3C7CCE3D27A7EB77005305E7 /* CustomAlert.swift in Sources */,
