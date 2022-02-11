@@ -19,6 +19,7 @@ class MainViewController: UIViewController {
         imageView.backgroundColor = #colorLiteral(red: 0.7607843137, green: 0.7607843137, blue: 0.7607843137, alpha: 1)
         imageView.layer.borderWidth = 5
         imageView.layer.borderColor = UIColor.white.cgColor
+        imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -89,6 +90,7 @@ class MainViewController: UIViewController {
     
     private let localRealm = try! Realm()
     private var workoutArray: Results<WorkoutModel>! = nil
+    private var userArray: Results<UserModel>!
     
     override func viewDidLayoutSubviews() {
         userPhotoImageView.layer.cornerRadius = userPhotoImageView.frame.width / 2
@@ -99,6 +101,7 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        setupUserParameters()
         tableView.reloadData()
     }
 
@@ -109,6 +112,7 @@ class MainViewController: UIViewController {
         setConstraints()
         setDelegate()
         getWotkouts(date: Date())
+        setupUserParameters()
         tableView.register(WorkoutTableViewCell.self, forCellReuseIdentifier: idWorkOutTableViewCell)
         
     }
@@ -164,6 +168,23 @@ class MainViewController: UIViewController {
         view.addSubview(workoutImageView)
         view.addSubview(tableView)
         tableView.delaysContentTouches = false
+    }
+    
+    private func setupUserParameters() {
+        
+        userArray = localRealm.objects(UserModel.self)
+        
+        if userArray.count != 0 {
+            userNameLabel.text = userArray[0].userFirstName + " " + userArray[0].userSecondName
+//            userHeightLabel.text = "Height: \(userArray[0].userHeight)"
+//            userWeightLabel.text = "Weight: \(userArray[0].userWeight)"
+//            targetLabel.text = "TARGET: \(userArray[0].userTarget) workouts"
+//            workoutsTargetLabel.text = "\(userArray[0].userTarget)"
+            
+            guard let data = userArray[0].userImage else { return }
+            guard let image = UIImage(data: data) else { return }
+            userPhotoImageView.image = image
+        }
     }
 
 }

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C3B9E9127B554C90046686C /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3B9E9027B554C80046686C /* ProfileCollectionViewCell.swift */; };
+		3C3B9E9327B55E6A0046686C /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3B9E9227B55E6A0046686C /* UserModel.swift */; };
+		3C3B9E9527B57F400046686C /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3B9E9427B57F400046686C /* SettingViewController.swift */; };
+		3C60D06A27B67E0D009A63FE /* UITextField + Extansion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C60D06927B67E0D009A63FE /* UITextField + Extansion.swift */; };
+		3C60D06C27B68079009A63FE /* GallaryOrPhotoAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C60D06B27B68079009A63FE /* GallaryOrPhotoAlert.swift */; };
 		3C7CCDDD27915D7F005305E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7CCDDC27915D7F005305E7 /* AppDelegate.swift */; };
 		3C7CCDDF27915D7F005305E7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7CCDDE27915D7F005305E7 /* SceneDelegate.swift */; };
 		3C7CCDE127915D7F005305E7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7CCDE027915D7F005305E7 /* MainViewController.swift */; };
@@ -46,6 +51,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3C3B9E9027B554C80046686C /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
+		3C3B9E9227B55E6A0046686C /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		3C3B9E9427B57F400046686C /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		3C60D06927B67E0D009A63FE /* UITextField + Extansion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField + Extansion.swift"; sourceTree = "<group>"; };
+		3C60D06B27B68079009A63FE /* GallaryOrPhotoAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GallaryOrPhotoAlert.swift; sourceTree = "<group>"; };
 		3C7CCDD927915D7F005305E7 /* WorkOutTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkOutTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C7CCDDC27915D7F005305E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3C7CCDDE27915D7F005305E7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +107,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C3B9E8F27B554780046686C /* ProfileVC */ = {
+			isa = PBXGroup;
+			children = (
+				3C3B9E9027B554C80046686C /* ProfileCollectionViewCell.swift */,
+			);
+			path = ProfileVC;
+			sourceTree = "<group>";
+		};
 		3C7CCDD027915D7F005305E7 = {
 			isa = PBXGroup;
 			children = (
@@ -142,6 +160,7 @@
 			children = (
 				3C7CCE122793558C005305E7 /* WorkoutTestModel.swift */,
 				3C7CCE28279B2ED0005305E7 /* WorkoutModel.swift */,
+				3C3B9E9227B55E6A0046686C /* UserModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -164,6 +183,7 @@
 				3C7CCE0627919217005305E7 /* MainVC */,
 				3C7CCE1E2799B528005305E7 /* NewWorkoutVC */,
 				3C7CCE4027AAB08D005305E7 /* StatisticVC */,
+				3C3B9E8F27B554780046686C /* ProfileVC */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -178,6 +198,7 @@
 				3C7CCE3827A2C3D2005305E7 /* TimerWorkoutViewController.swift */,
 				3C7CCE16279997A6005305E7 /* StatisticViewController.swift */,
 				3C7CCE18279997B6005305E7 /* ProfileViewController.swift */,
+				3C3B9E9427B57F400046686C /* SettingViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -197,6 +218,7 @@
 				3C7CCDF927916513005305E7 /* UIFont + Extension.swift */,
 				3C7CCDFB27916626005305E7 /* UIColor + Extension.swift */,
 				3C7CCDFD27916A37005305E7 /* UIView + Extansion.swift */,
+				3C60D06927B67E0D009A63FE /* UITextField + Extansion.swift */,
 				3C7CCDFF27916B15005305E7 /* UIStackView + Extension.swift */,
 				3C7CCE1C2799AFA9005305E7 /* UILabel + Extension.swift */,
 				3C7CCE3E27A94D2A005305E7 /* Int + Extension.swift */,
@@ -255,6 +277,7 @@
 				3C7CCE2E279EFE42005305E7 /* SimpleAlert.swift */,
 				3C7CCE3627A18070005305E7 /* OkCancelAlert.swift */,
 				3C7CCE3C27A7EB77005305E7 /* CustomAlert.swift */,
+				3C60D06B27B68079009A63FE /* GallaryOrPhotoAlert.swift */,
 			);
 			path = Alerts;
 			sourceTree = "<group>";
@@ -354,6 +377,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C60D06C27B68079009A63FE /* GallaryOrPhotoAlert.swift in Sources */,
+				3C3B9E9127B554C90046686C /* ProfileCollectionViewCell.swift in Sources */,
 				3C7CCDFA27916513005305E7 /* UIFont + Extension.swift in Sources */,
 				3C7CCE29279B2ED0005305E7 /* WorkoutModel.swift in Sources */,
 				3C7CCE3B27A7164B005305E7 /* Date + Extension.swift in Sources */,
@@ -376,12 +401,15 @@
 				3C7CCE0B2792B2F8005305E7 /* CalendarCollectionViewCell.swift in Sources */,
 				3C7CCDFE27916A37005305E7 /* UIView + Extansion.swift in Sources */,
 				3C7CCE2F279EFE42005305E7 /* SimpleAlert.swift in Sources */,
+				3C3B9E9527B57F400046686C /* SettingViewController.swift in Sources */,
 				3C7CCE19279997B6005305E7 /* ProfileViewController.swift in Sources */,
 				3C7CCE202799B68E005305E7 /* DateAndRepeatView.swift in Sources */,
 				3C7CCE0E27931040005305E7 /* WeatherView.swift in Sources */,
+				3C3B9E9327B55E6A0046686C /* UserModel.swift in Sources */,
 				3C7CCDFC27916626005305E7 /* UIColor + Extension.swift in Sources */,
 				3C7CCE4227AAB150005305E7 /* StatisticTableViewCell.swift in Sources */,
 				3C7CCE222799B6AD005305E7 /* RepsOrTimerView.swift in Sources */,
+				3C60D06A27B67E0D009A63FE /* UITextField + Extansion.swift in Sources */,
 				3C7CCE3727A18070005305E7 /* OkCancelAlert.swift in Sources */,
 				3C7CCE3D27A7EB77005305E7 /* CustomAlert.swift in Sources */,
 			);
