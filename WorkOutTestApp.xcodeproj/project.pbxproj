@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C18BC7327BE7846005F08EB /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C18BC7227BE7846005F08EB /* Notification.swift */; };
+		3C18BC7527BE86A4005F08EB /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C18BC7427BE86A4005F08EB /* OnboardingViewController.swift */; };
 		3C3B9E9127B554C90046686C /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3B9E9027B554C80046686C /* ProfileCollectionViewCell.swift */; };
 		3C3B9E9327B55E6A0046686C /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3B9E9227B55E6A0046686C /* UserModel.swift */; };
 		3C3B9E9527B57F400046686C /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3B9E9427B57F400046686C /* SettingViewController.swift */; };
@@ -51,6 +53,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3C18BC7227BE7846005F08EB /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		3C18BC7427BE86A4005F08EB /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		3C3B9E9027B554C80046686C /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
 		3C3B9E9227B55E6A0046686C /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		3C3B9E9427B57F400046686C /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +155,7 @@
 			children = (
 				3C7CCDDC27915D7F005305E7 /* AppDelegate.swift */,
 				3C7CCDDE27915D7F005305E7 /* SceneDelegate.swift */,
+				3C18BC7227BE7846005F08EB /* Notification.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -199,6 +204,7 @@
 				3C7CCE16279997A6005305E7 /* StatisticViewController.swift */,
 				3C7CCE18279997B6005305E7 /* ProfileViewController.swift */,
 				3C3B9E9427B57F400046686C /* SettingViewController.swift */,
+				3C18BC7427BE86A4005F08EB /* OnboardingViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -397,6 +403,7 @@
 				3C7CCE1D2799AFA9005305E7 /* UILabel + Extension.swift in Sources */,
 				3C7CCDDD27915D7F005305E7 /* AppDelegate.swift in Sources */,
 				3C7CCDDF27915D7F005305E7 /* SceneDelegate.swift in Sources */,
+				3C18BC7327BE7846005F08EB /* Notification.swift in Sources */,
 				3C7CCE1B2799A76B005305E7 /* MainTabBarController.swift in Sources */,
 				3C7CCE0B2792B2F8005305E7 /* CalendarCollectionViewCell.swift in Sources */,
 				3C7CCDFE27916A37005305E7 /* UIView + Extansion.swift in Sources */,
@@ -407,6 +414,7 @@
 				3C7CCE0E27931040005305E7 /* WeatherView.swift in Sources */,
 				3C3B9E9327B55E6A0046686C /* UserModel.swift in Sources */,
 				3C7CCDFC27916626005305E7 /* UIColor + Extension.swift in Sources */,
+				3C18BC7527BE86A4005F08EB /* OnboardingViewController.swift in Sources */,
 				3C7CCE4227AAB150005305E7 /* StatisticTableViewCell.swift in Sources */,
 				3C7CCE222799B6AD005305E7 /* RepsOrTimerView.swift in Sources */,
 				3C60D06A27B67E0D009A63FE /* UITextField + Extansion.swift in Sources */,

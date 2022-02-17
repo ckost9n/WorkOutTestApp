@@ -20,11 +20,30 @@ struct DifferenceWorkout {
 class StatisticViewController: UIViewController {
     
     private let cellIdentifier = "statisticTableViewCell"
-    let dateToday = Date().localDate()
+    
     private let localRealm = try! Realm()
     private var workoutArray: Results<WorkoutModel>! = nil
     
-    var differenceArray = [DifferenceWorkout]()
+    private var differenceArray = [DifferenceWorkout]()
+    private var filtredArray = [DifferenceWorkout]()
+    
+    private let dateToday = Date().localDate()
+    private var isFiltred = false
+    
+    private let searchTextField: UITextField = {
+       let textField = UITextField()
+        textField.backgroundColor = .specialBrown
+        textField.borderStyle = .none
+        textField.layer.cornerRadius = 10
+        textField.textColor = .specialGray
+        textField.font = .robotoBold20()
+        textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: textField.frame.height))
+        textField.leftViewMode = .always
+        textField.clearButtonMode = .always
+        textField.returnKeyType = .done
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        return textField
+    }()
     
     private let statisticLabel: UILabel = {
         let label = UILabel()
@@ -88,6 +107,7 @@ class StatisticViewController: UIViewController {
     private func setupViews() {
         view.backgroundColor = .specialBackground
         
+        view.addSubview(searchTextField)
         view.addSubview(statisticLabel)
         view.addSubview(mySegmentedControl)
         view.addSubview(exercisesLabel)
@@ -103,6 +123,7 @@ class StatisticViewController: UIViewController {
     private func setDelegate() {
         tableView.delegate = self
         tableView.dataSource = self
+        searchTextField.delegate = self
     }
     
     private func getWorkoutsName() -> [String] {
@@ -168,13 +189,11 @@ class StatisticViewController: UIViewController {
         
         switch mySegmentedControl.selectedSegmentIndex {
         case 0:
-            print("Неделя")
             differenceArray = [DifferenceWorkout]()
             let dateStart = dateToday.offsetDays(days: 7)
             getDifferenceModel(dateStart: dateStart)
             tableView.reloadData()
         case 1:
-            print("Месяц")
             differenceArray = [DifferenceWorkout]()
             let dateStart = dateToday.offsetMonth(month: 1)
             getDifferenceModel(dateStart: dateStart)
@@ -183,7 +202,38 @@ class StatisticViewController: UIViewController {
             print("segmented error")
         }
     }
+    
+    private func filtringWorkouts(text: String) {
+        
+        for workout in differenceArray {
+            if workout.name.lowercased().contains(text.lowercased()) {
+                filtredArray.append(workout)
+            }
+        }
+        
+    }
 
+}
+
+// MARK: - UITextFieldDelegate
+
+extension StatisticViewController: UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let text = textField.text, let textRange = Range(range, in: text) else { return false}
+        let updateText = text.replacingCharacters(in: textRange, with: string)
+        filtredArray = [DifferenceWorkout]()
+        isFiltred = updateText.count > 0 ? true : false
+        filtringWorkouts(text: updateText)
+        tableView.reloadData()
+        
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        searchTextField.resignFirstResponder()
+    }
+    
 }
 
 // MARK: - UITableViewDataSource
@@ -191,19 +241,14 @@ class StatisticViewController: UIViewController {
 extension StatisticViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        workoutArray.count
-        differenceArray.count
-//        return 5
+        isFiltred ? filtredArray.count : differenceArray.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! StatisticTableViewCell
         
-        let differenceModel = differenceArray[indexPath.row]
+        let differenceModel = isFiltred ? filtredArray[indexPath.row] : differenceArray[indexPath.row]
         cell.configure(differenceWorkout: differenceModel)
-
-//        let model = workoutArray[indexPath.row]
-//        cell.configure(model: model)
 
         return cell
     }
@@ -237,9 +282,16 @@ extension StatisticViewController {
             mySegmentedControl.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             mySegmentedControl.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
         ])
+        
+        NSLayoutConstraint.activate([
+            searchTextField.topAnchor.constraint(equalTo: mySegmentedControl.bottomAnchor, constant: 10),
+            searchTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            searchTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            searchTextField.heightAnchor.constraint(equalToConstant: 40)
+        ])
 
         NSLayoutConstraint.activate([
-            exercisesLabel.topAnchor.constraint(equalTo: mySegmentedControl.bottomAnchor, constant: 10),
+            exercisesLabel.topAnchor.constraint(equalTo: searchTextField.bottomAnchor, constant: 10),
             exercisesLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
         ])
 

@@ -72,4 +72,11 @@ extension Date {
         return weekArray
     }
     
+    func getDateDayMMyyyy() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy/MM/dd"
+        let date = formatter.string(from: self)
+        return date
+    }
+    
 }
