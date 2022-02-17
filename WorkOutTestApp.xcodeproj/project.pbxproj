@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3C18BC7327BE7846005F08EB /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C18BC7227BE7846005F08EB /* Notification.swift */; };
 		3C18BC7527BE86A4005F08EB /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C18BC7427BE86A4005F08EB /* OnboardingViewController.swift */; };
+		3C18BC7827BE95F1005F08EB /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C18BC7727BE95F1005F08EB /* OnboardingCollectionViewCell.swift */; };
 		3C3B9E9127B554C90046686C /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3B9E9027B554C80046686C /* ProfileCollectionViewCell.swift */; };
 		3C3B9E9327B55E6A0046686C /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3B9E9227B55E6A0046686C /* UserModel.swift */; };
 		3C3B9E9527B57F400046686C /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3B9E9427B57F400046686C /* SettingViewController.swift */; };
@@ -55,6 +56,7 @@
 /* Begin PBXFileReference section */
 		3C18BC7227BE7846005F08EB /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		3C18BC7427BE86A4005F08EB /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		3C18BC7727BE95F1005F08EB /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		3C3B9E9027B554C80046686C /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
 		3C3B9E9227B55E6A0046686C /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		3C3B9E9427B57F400046686C /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -111,6 +113,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C18BC7627BE95CA005F08EB /* OnboardingVC */ = {
+			isa = PBXGroup;
+			children = (
+				3C18BC7727BE95F1005F08EB /* OnboardingCollectionViewCell.swift */,
+			);
+			path = OnboardingVC;
+			sourceTree = "<group>";
+		};
 		3C3B9E8F27B554780046686C /* ProfileVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,6 +194,7 @@
 		3C7CCDF327915EB8005305E7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3C18BC7627BE95CA005F08EB /* OnboardingVC */,
 				3C7CCE3227A01151005305E7 /* RepsWorkoutVC and TimerWorkoutVC */,
 				3C7CCE0627919217005305E7 /* MainVC */,
 				3C7CCE1E2799B528005305E7 /* NewWorkoutVC */,
@@ -196,6 +207,7 @@
 		3C7CCDF427915EE0005305E7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3C18BC7427BE86A4005F08EB /* OnboardingViewController.swift */,
 				3C7CCE1A2799A76B005305E7 /* MainTabBarController.swift */,
 				3C7CCDE027915D7F005305E7 /* MainViewController.swift */,
 				3C7CCE1427986ED0005305E7 /* NewWorkoutViewController.swift */,
@@ -204,7 +216,6 @@
 				3C7CCE16279997A6005305E7 /* StatisticViewController.swift */,
 				3C7CCE18279997B6005305E7 /* ProfileViewController.swift */,
 				3C3B9E9427B57F400046686C /* SettingViewController.swift */,
-				3C18BC7427BE86A4005F08EB /* OnboardingViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -408,6 +419,7 @@
 				3C7CCE0B2792B2F8005305E7 /* CalendarCollectionViewCell.swift in Sources */,
 				3C7CCDFE27916A37005305E7 /* UIView + Extansion.swift in Sources */,
 				3C7CCE2F279EFE42005305E7 /* SimpleAlert.swift in Sources */,
+				3C18BC7827BE95F1005F08EB /* OnboardingCollectionViewCell.swift in Sources */,
 				3C3B9E9527B57F400046686C /* SettingViewController.swift in Sources */,
 				3C7CCE19279997B6005305E7 /* ProfileViewController.swift in Sources */,
 				3C7CCE202799B68E005305E7 /* DateAndRepeatView.swift in Sources */,

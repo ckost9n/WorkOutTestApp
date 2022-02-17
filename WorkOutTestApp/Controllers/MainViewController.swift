@@ -104,6 +104,12 @@ class MainViewController: UIViewController {
         setupUserParameters()
         tableView.reloadData()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        showOnboarding()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -144,6 +150,11 @@ class MainViewController: UIViewController {
         
         workoutArray = localRealm.objects(WorkoutModel.self).filter(compound).sorted(byKeyPath: "workoutName")
         
+        checkWorkoutsToday()
+        tableView.reloadData()
+    }
+    
+    private func checkWorkoutsToday() {
         if workoutArray.count == 0 {
             tableView.isHidden = true
             workoutImageView.isHidden = false
@@ -151,9 +162,15 @@ class MainViewController: UIViewController {
             workoutImageView.isHidden = true
             tableView.isHidden = false
         }
-        
-        tableView.reloadData()
-        
+    }
+    
+    private func showOnboarding() {
+        let userDefaults = UserDefaults.standard
+        let onBoardingWasViewed = userDefaults.bool(forKey: "OnboardingWasViewed")
+        guard !onBoardingWasViewed else { return }
+        let onboardingVC = OnboardingViewController()
+        onboardingVC.modalPresentationStyle = .fullScreen
+        present(onboardingVC, animated: false)
     }
 
     private func setupViews() {

@@ -19,6 +19,8 @@ class ProfileViewController: UIViewController {
     
     private let cellIdentifier = "profileCell"
     
+    private var workoutCompleteCount: Float = 0
+    
     private let profileLabel: UILabel = {
        let label = UILabel()
         label.text = "PROFILE"
@@ -150,6 +152,7 @@ class ProfileViewController: UIViewController {
     
     private let localRealm = try! Realm()
     private var workoutArray: Results<WorkoutModel>!
+    private var workoutArrayStatus: Results<WorkoutModel>!
     private var userArray: Results<UserModel>!
     
     private var resultWorkout = [ResultWorkout]()
@@ -268,8 +271,15 @@ class ProfileViewController: UIViewController {
         present(settingVC, animated: true)
     }
     
-
-
+    private func setProgressTarget() -> Float {
+        let predicateStatus = NSPredicate(format: "status == %@", NSNumber(value: true))
+        workoutArrayStatus = localRealm.objects(WorkoutModel.self)
+            .filter(predicateStatus)
+//        let satus = Float(workoutArrayStatus.count) / 100
+        workoutsNowLabel.text = "\(workoutArrayStatus.count)"
+        return Float(workoutArrayStatus.count) / 100
+    }
+    
 }
 
 
@@ -307,7 +317,7 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        progressView.setProgress(0.6, animated: true)
+        progressView.setProgress(setProgressTarget(), animated: true)
     }
     
 }
