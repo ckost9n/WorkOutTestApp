@@ -185,8 +185,6 @@ class StatisticViewController: UIViewController {
 
     @objc private func segmentedControlTapped() {
         
-        print("Tap")
-        
         switch mySegmentedControl.selectedSegmentIndex {
         case 0:
             differenceArray = [DifferenceWorkout]()
@@ -232,6 +230,18 @@ extension StatisticViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         searchTextField.resignFirstResponder()
+    }
+    
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        isFiltred = false
+        differenceArray = [DifferenceWorkout]()
+        
+        let dateStart = mySegmentedControl.selectedSegmentIndex == 0
+        ? dateToday.offsetDays(days: 7) : dateToday.offsetMonth(month: 1)
+        
+        getDifferenceModel(dateStart: dateStart)
+        tableView.reloadData()
+        return true
     }
     
 }

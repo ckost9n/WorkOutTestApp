@@ -275,7 +275,6 @@ class ProfileViewController: UIViewController {
         let predicateStatus = NSPredicate(format: "status == %@", NSNumber(value: true))
         workoutArrayStatus = localRealm.objects(WorkoutModel.self)
             .filter(predicateStatus)
-//        let satus = Float(workoutArrayStatus.count) / 100
         workoutsNowLabel.text = "\(workoutArrayStatus.count)"
         return Float(workoutArrayStatus.count) / 100
     }

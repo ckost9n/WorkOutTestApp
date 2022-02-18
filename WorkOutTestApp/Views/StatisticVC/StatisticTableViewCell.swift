@@ -104,8 +104,8 @@ class StatisticTableViewCell: UITableViewCell {
         }
         
         switch difference {
-        case ..<0: workoutNumberLabel.textColor = .specialGreen
-        case 1...: workoutNumberLabel.textColor  = .specialYellow
+        case ..<0: workoutNumberLabel.textColor = .specialYellow
+        case 1...: workoutNumberLabel.textColor  = .specialGreen
         default:
             workoutNumberLabel.textColor = .specialGray
         }
