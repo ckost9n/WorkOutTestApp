@@ -203,6 +203,15 @@ class SettingViewController: UIViewController {
         let tapImageView = UITapGestureRecognizer(target: self, action: #selector(setUserPhoto))
         addPhotoView.isUserInteractionEnabled = true
         addPhotoView.addGestureRecognizer(tapImageView)
+        
+        let tapScreen = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        tapScreen.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapScreen)
+        
+        let tapSwipe = UISwipeGestureRecognizer(target: self, action: #selector(swipeHideKeyboard))
+        tapSwipe.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapSwipe)
+        
     }
     
     @objc func setUserPhoto() {
@@ -210,6 +219,14 @@ class SettingViewController: UIViewController {
             guard let self = self else { return }
             self.chooseImagePicker(source: source)
         }
+    }
+    
+    @objc func hideKeyboard() {
+        view.endEditing(true)
+    }
+    
+    @objc func swipeHideKeyboard() {
+        view.endEditing(true)
     }
 
     @objc func closeButtonTapped() {
@@ -251,6 +268,18 @@ extension SettingViewController: UIImagePickerControllerDelegate, UINavigationCo
         addPhotoImageView.image = image
         addPhotoImageView.contentMode = .scaleAspectFit
         dismiss(animated: true)
+    }
+    
+}
+
+extension SettingViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        firstNameTextField.resignFirstResponder()
+//        secondNameTextField.resignFirstResponder()
+//        heightTextField.resignFirstResponder()
+//        weightTextField.resignFirstResponder()
+        return targetTextField.resignFirstResponder()
     }
     
 }

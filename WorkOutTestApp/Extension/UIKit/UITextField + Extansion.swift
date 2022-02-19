@@ -21,7 +21,7 @@ extension UITextField {
         self.leftViewMode = .always
         self.clearButtonMode = .always
         self.returnKeyType = .done
-        self.keyboardType = .numberPad
+//        self.keyboardType = .numberPad
         self.translatesAutoresizingMaskIntoConstraints = false
     }
     

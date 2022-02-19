@@ -97,6 +97,7 @@ class OnboardingViewController: UIViewController {
     private func saveUserDefaults() {
         let userDefaults = UserDefaults.standard
         userDefaults.set(true, forKey: "OnboardingWasViewed")
+        self.modalTransitionStyle = .flipHorizontal
         dismiss(animated: true)
     }
     

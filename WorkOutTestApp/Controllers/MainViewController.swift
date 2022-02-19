@@ -142,7 +142,6 @@ class MainViewController: UIViewController {
         let weekday = dateTimeZone.getWeekdayNumber()
         let dateStart = dateTimeZone.startEndDate().0
         let dateEnd = dateTimeZone.startEndDate().1
-        print(dateTimeZone)
         
         let predicateRepeat = NSPredicate(format: "workoutNumberOfDay = \(weekday) AND workoutRepeat = true")
         let pridecateUnrepeat = NSPredicate(format: "workoutRepeat = false AND workoutDate BETWEEN %@", [dateStart, dateEnd])
